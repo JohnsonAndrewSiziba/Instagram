@@ -20,13 +20,13 @@
             </div>
 
             <div class="pt-4 font-weight-bold">
-                sizibascode.herokuapp.com
+                {{$user->profile->title}}
             </div>
 
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cumque dolores officia provident unde, velit voluptate? Alias aliquid, commodi error ex harum minima molestias odio quam quia quod repellat, temporibus.</div>
+            <div>{{$user->profile->description}}</div>
 
             <div class="pt-4 font-weight-bold">
-                <a href="#">https://sizibascode.herokuapp.com</a>
+                <a href="#">{{$user->profile->url ?? 'N\A'}}</a>
             </div>
         </div>
     </div>

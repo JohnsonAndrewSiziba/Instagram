@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="/img/webdev.jpeg" class="rounded-circle" style="width: 150px; height: 150px">
+            <img src="{{ $user->profile->profileImage() }}" class="rounded-circle w-100" style="width: 140px; height: 170px">
         </div>
 
         <div class="col-9 pt-5">

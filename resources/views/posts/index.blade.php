@@ -2,33 +2,28 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-8">
-            <img src="/storage/{{ $post->image }}" alt="here" class="w-100">
+    @foreach($posts as $post)
+        <div class="row">
+            <div class="col-6 offset-3">
+                <a href="/profile/{{ $post->user->id }}">
+                    <img src="/storage/{{ $post->image }}" alt="here" class="w-75">
+                </a>
+            </div>
         </div>
 
-        <div class="col-4">
-
-            <div class="d-flex align-items-center">
-                <div class="pr-3">
-                    <img src="{{ $post->user->profile->profileimage() }}" style="max-width: 40px" class="w-100 rounded-circle">
-                </div>
-                <div>
-                    <div class="font-weight-bold">
-                        <a href="/profile/{{ $post->user->id }}">
-                            <span class="text-dark">{{ $post->user->username }}</span>
-                        </a>
-                        <a href="#" class="pl-3">Follow</a>
-                    </div>
-                </div>
+        <div class="row pt-2 pb-4">
+            <div class="col-6 offset-3">
+                <p><span class="font-weight-bold"> <a href="/profile/{{ $post->user->id }}"> <span class="text-dark">{{ $post->user->username }}</span> </a>  </span> {{ $post->caption }}</p>
             </div>
 
-            <hr>
-
-            <p><span class="font-weight-bold"> <a href="/profile/{{ $post->user->id }}"> <span class="text-dark">{{ $post->user->username }}</span> </a>  </span> {{ $post->caption }}</p>
         </div>
+        @endforeach
 
-    </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {{ $posts->links() }}
+            </div>
+        </div>
 </div>
 @endsection
 
